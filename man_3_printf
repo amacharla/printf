@@ -1,0 +1,46 @@
+.TH _PRINTF 3 "17 June 2017" "version 1.0" "Programmer's Manual"
+.SH NAME
+.B _printf
+- individualized printf function.
+.SH SYNOPSIS
+.PP
+.B _printf FORMAT [ARGUMENT]
+.PP
+.B #include ‘holberton.h’
+.PP
+.B #include <stdio.h>
+.PP
+.B #include <stdlib.h>
+.PP
+.B #include <stdarg.h>
+.PP
+.B #include <unistd.h>
+.PP
+.B int _printf(const char *format, …);
+.SH DESCRIPTION
+- The printf built-in function writes output to an implementation-defined stream such as stdout under control of the string pointed to by format that specifies how subsequent arguments are converted for output
+.PP
+.SH Example of function _printf:
+ _printf("Holberton %s %c", "School", '!')
+ OUTPUT = Print on stdout: Holberton School!
+.PP
+.SH Return Value
+It should return the number of characters printed not including the null byte.
+.SH Conversion Specifier
+.B c,
+It prints an unsigned character.
+.PP
+.B d, i,
+The integer argument is converted to a decimal notation.
+.PP
+.B s,
+This is a char * which is a pointer to array of characters which is a pointer to a string.
+.PP
+.B %,
+This returns a character unless there is another % in front of it at, which it will return the actual sign.
+.SH SEE ALSO
+.I Nothing else
+.SH BUGS
+No Known Bugs
+.SH AUTHORS
+.B Wendy Segura and Anoop Macharlauu
