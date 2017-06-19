@@ -12,7 +12,7 @@ int print_char(va_list arg)
 	i = va_arg(arg, int);
 	_putchar(i);
 
-	return (0);
+	return (1);
 }
 
 /**

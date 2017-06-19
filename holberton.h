@@ -16,7 +16,7 @@ typedef struct printf_functions
 {
 	char type;
 	int (*printer)();
-} print_func;
+} pstruct;
 
 /* HELPER FUNCTIONS */
 int print_char(va_list arg);

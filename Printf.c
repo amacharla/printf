@@ -8,42 +8,36 @@
 
 int _printf(const char *format, ...)
 {
+	
+	unsigned int i, j, count;
 	va_list arguments;
-	unsigned int i = 0, j = 0, index;
-	unsigned int len = 0;
 
-	struct print_func [] =
+	pstruct print_func [] =
 	{
-		{ 'c', print_c},
-		{'s', print_s},
-		{NULL, NULL}
+		{'c', print_char},
+		{'s', print_string},
+		{'\0', NULL}
 	};
 
 	/* initialize va list */
 	va_start(arguments, format);
-
-	if (format == NULL)
-		return (0);
+	i = 0;
+	j = 0;
+	count = 0;
 
 	/* prints char before % and copies after % */
 	while (format && format[i])
 	{
-		if (format[i] != '%')
-			index = format[i];
-		else
+		while (print_func[j].type)
 		{
-			i++;
-			j = 0;
-			while (print_func[j].type != '\0')
-			{
-				if (print_func[j].type == format[i])
-					index = print_func[j].printer(arguments);
-				j++;
-			}
+			if (print_func[j].type == format[i])
+				count += print_func[j].printer(arguments);
+			j++;
 		}
+		j = 0;
 		i++;
-		index;
 	}
+	_putchar('\n');
 	va_end(arguments);
-	return (index);
+	return (count);
 }
