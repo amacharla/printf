@@ -16,8 +16,8 @@ int _printf(const char *format, ...)
 	{
 		{'c', print_char},
 		{'s', print_string},
-		{'i', print_number},
-		{'d', print_number},
+		{'i', print_integer},
+		{'d', print_decimal},
 		{'b', print_binary},
 		{'%', print_percent},
 		{'\0', NULL}
@@ -38,7 +38,10 @@ int _printf(const char *format, ...)
 			while (print_func[j].type)
 			{	/* go through type till it matches format character */
 				if (print_func[j].type == mod)
+				{
 					count += print_func[j].printer(arguments);
+					break;
+				}	
 				j++; /*transverse through type*/
 			}
 			j = 0; /*reset transverse for type if matched or hits null*/

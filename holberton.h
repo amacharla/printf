@@ -22,7 +22,8 @@ typedef struct printf_functions
 int print_percent(void);
 int print_char(va_list arg);
 int print_string(va_list arg);
-int print_number(va_list arg);
+int print_integer(va_list arg);
+int print_decimal(va_list arg);
 int print_binary(va_list arg);
 
 #endif /* _holberton_h */

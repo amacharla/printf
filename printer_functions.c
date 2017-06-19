@@ -43,11 +43,11 @@ int print_string(va_list arg)
 	return (i);
 }
 /**
- * print_number - print numbers
+ * print_integer - print integers
  * @arg: va_list of arguments
  * Return: number count
  */
-int print_number(va_list arg)
+int print_integer(va_list arg)
 {
 	unsigned int i, j;
 	unsigned int digit = 0;
@@ -77,6 +77,42 @@ int print_number(va_list arg)
 
 	return (i);
 }
+/**
+ * print_decimal - print decimals
+ * @arg: va_list of arguments
+ * Return: number count
+ */
+int print_decimal(va_list arg)
+{
+	unsigned int i, j;
+	unsigned int digit = 0;
+	int number = va_arg(arg, int);
+	
+	/*if negative number put negative sign*/
+	if (number < 0)
+	{
+		_putchar('-');
+		number *= -1;
+	}
+	/*get int length */	
+	for (i = 1; number / 10 == 0; i++)
+		;
+	/*print all the digits except ones place*/
+	for (j = i; j > 0; j--)
+	{
+		digit = number / (10 ^ j);
+		_putchar(digit + '0');
+
+	}
+	/*print ones place*/
+	if (j == 0)
+	{	digit = number % 10;
+		_putchar(digit + '0');
+	}
+
+	return (i);
+}
+
 /**
  * print_binary - print in binary
  * @arg: int arguments
