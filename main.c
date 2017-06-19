@@ -5,7 +5,7 @@ int main(void)
 {
 	int count = 0;
 	
-	count = _printf("%c %b %i", 'h', 22, 33);
-	printf("%c %b %i \n", 'h', 23);
+	count = _printf("%c %i", 'h', 11);
+	printf("%c %i\n", 'h', -11);
 	return (count);
 }

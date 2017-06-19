@@ -15,9 +15,7 @@ int print_percent()
 **/
 int print_char(va_list arg)
 {
-	char i;
-
-	i = va_arg(arg, int);
+	char i = va_arg(arg, int);
 	_putchar(i);
 
 	return (1);
@@ -57,9 +55,12 @@ int print_number(va_list arg)
 	
 	/*if negative number put negative sign*/
 	if (number < 0)
+	{
 		_putchar('-');
+		number *= -1;
+	}
 	/*get int length */	
-	for (i = 1; number/10 == 0; i++)
+	for (i = 1; number / 10 == 0; i++)
 		;
 	/*print all the digits except ones place*/
 	for (j = i; j > 0; j--)
@@ -94,7 +95,7 @@ int print_binary(va_list arg)
 		counter /= 2;
 	
 	/* allocating space to hold binary values + null check*/
-	if ((remainder = malloc(i * sizeof(char))) == NULL)
+	if ((remainder = malloc(i * sizeof(int))) == NULL)
 			return (0);
 
 	/* adding remainders (binary into array backwards) */
