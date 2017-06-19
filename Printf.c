@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "printF.h"
 
 /**
 ** _printf - gives output
@@ -9,24 +9,24 @@
 int _printf(const char *format, ...)
 {
 	va_list arguments;
-	unsigned int i, j index;
+	unsigned int i = 0, j = 0, index;
 	unsigned int len = 0;
 
-	struct printf [] {
-		{ 'c', print_c}, {'s', print_s}, {NULL, NULL}
+	struct print_func [] =
+	{
+		{ 'c', print_c},
+		{'s', print_s},
+		{NULL, NULL}
 	};
 
 	/* initialize va list */
 	va_start(arguments, format);
 
-	i = 0;
-
 	if (format == NULL)
 		return (0);
 
 	/* prints char before % and copies after % */
-
-	while (format && format[i] !=  '\0')
+	while (format && format[i])
 	{
 		if (format[i] != '%')
 			index = format[i];
@@ -34,12 +34,10 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			j = 0;
-			while (printf[j].input != '\0')
+			while (print_func[j].type != '\0')
 			{
-				if (printf[j].input == format[i])
-				{
-				index = printf[j].f(arg, index);
-				}
+				if (print_func[j].type == format[i])
+					index = print_func[j].printer(arg;
 				j++;
 			}
 		}
@@ -49,8 +47,3 @@ int _printf(const char *format, ...)
 	va_end(arg);
 	return (index);
 }
-			
-
-	
-
-	
