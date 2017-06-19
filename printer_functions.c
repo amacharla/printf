@@ -3,21 +3,21 @@
  * print_percent - print percent
  * Return: count
  */
-int print_percent()
+int print_percent(void)
 {
 	_putchar('%');
 	return (1);
 }
 /**
-** print_c - prints character
-** @arg - char to print
+** print_char - prints character
+** @arg: char to print
 ** Return: 0 success
 **/
 int print_char(va_list arg)
 {
 	char i = va_arg(arg, int);
-	_putchar(i);
 
+	_putchar(i);
 	return (1);
 }
 
@@ -33,7 +33,7 @@ int print_string(va_list arg)
 	char *str;
 
 	str = va_arg(arg, char *);
-	
+
 	if (str == NULL)
 		str = "(null)";
 
