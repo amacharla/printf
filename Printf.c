@@ -37,13 +37,13 @@ int _printf(const char *format, ...)
 			while (print_func[j].type != '\0')
 			{
 				if (print_func[j].type == format[i])
-					index = print_func[j].printer(arg;
+					index = print_func[j].printer(arguments);
 				j++;
 			}
 		}
 		i++;
 		index;
 	}
-	va_end(arg);
+	va_end(arguments);
 	return (index);
 }
