@@ -19,7 +19,9 @@ typedef struct printf_functions
 } pstruct;
 
 /* HELPER FUNCTIONS */
+int print_percent(void);
 int print_char(va_list arg);
 int print_string(va_list arg);
+int print_number(va_list arg);
 
 #endif /* _holberton_h */

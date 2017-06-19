@@ -1,5 +1,13 @@
 #include "holberton.h"
-
+/**
+ * print_percent - print percent
+ * Return: count
+ */
+int print_percent()
+{
+	_putchar('%');
+	return (1);
+}
 /**
 ** print_c - prints character
 ** @arg - char to print
@@ -35,4 +43,37 @@ int print_string(va_list arg)
 		_putchar(str[i]);
 
 	return (i);
+}
+/**
+ * print_number - print numbers
+ * @arg: va_list of arguments
+ * Return: number count
+ */
+int print_number(va_list arg)
+{
+	unsigned int i, j;
+	unsigned int digit = 0;
+	int number = va_arg(arg, int);
+	
+	/*if negative number put negative sign*/
+	if (number < 0)
+		_putchar('-');
+	/*get int length */	
+	for (i = 1; number/10 == 0; i++)
+		;
+	/*print all the digits except ones place*/
+	for (j = i; j > 0; j--)
+	{
+		digit = number / (10 ^ j);
+		_putchar(digit + '0');
+
+	}
+	/*print ones place*/
+	if (j == 0)
+	{	digit = number % 10;
+		_putchar(digit + '0');
+	}
+
+	return (i);
+
 }

@@ -16,6 +16,9 @@ int _printf(const char *format, ...)
 	{
 		{'c', print_char},
 		{'s', print_string},
+		{'i', print_number},
+		{'d', print_number},
+		{'%', print_percent},
 		{'\0', NULL}
 	};
 
@@ -38,10 +41,11 @@ int _printf(const char *format, ...)
 				j++; /*transverse through type*/
 			}
 			j = 0; /*reset transverse for type if matched or hits null*/
+			i++;
 		}
 		else
 		{	
-			_putchar('%');
+			_putchar(format[i]);
 			count++;
 		}
 		i++; /*transverse through format*/
