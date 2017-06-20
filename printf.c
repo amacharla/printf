@@ -26,12 +26,16 @@ int _printf(const char *format, ...)
 			while (print_func[j].type)
 			{
 				if (print_func[j].type == mod)
-					{ count += print_func[j].printer(arguments); i++; break; }
+				{
+					count += print_func[j].printer(arguments);
+					i++; break;
+				}
 				j++;
 			}
 			if (print_func[j].type == '\0')
 			{
-				_putchar('%'); _putchar(mod);
+				_putchar('%');
+				_putchar(mod);
 				count += 2; i++; /*move past %*/
 			}
 			j = 0; /*reset transverse for type if matched or hits null*/
