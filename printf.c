@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
 	{
 		if (!(format[i] == '%' && format[i + 1]))
 			{ _putchar(format[i]); count++; i++; continue; }
-
 		mod = format[i + 1];
 		while (print_func[j].type)
 		{
