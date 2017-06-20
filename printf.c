@@ -12,8 +12,9 @@ int _printf(const char *format, ...)
 	char mod;
 	va_list arguments;
 
-	pstruct print_func [] =	{
-		{'c', print_char}, {'s', print_string}, {'%', print_percent}, {'\0', NULL}
+	pstruct print_func [] = {
+		{'c', print_char}, {'s', print_string}, {'i', print_integer},
+		{'d', print_decimal}, {'b', print_binary}, {'%', print_percent}, {'\0', NULL}
 	};
 	/* initialize va list and transvers and count */
 	va_start(arguments, format);
