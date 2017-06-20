@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
 ** print_char - prints character
 ** @arg: char to print
@@ -80,31 +79,37 @@ int print_integer(va_list arg)
  */
 int print_digit(va_list arg)
 {
-	int i;
-	int count = 0;
-	int maxint = 1000000000;
-	int number = va_arg(arg, int);
-	/*if negative number put negative sign*/
-	if (number < 0)
-	{
-		_putchar('-');
-		number *= -1;
-	}
-	if (number == 0)
-		_putchar('0');
+        int i, tens;
+        int count = 0;
+        int maxint = 1000000000;
+        int number = va_arg(arg, int);
+        /*if negative number put negative sign*/
+        if (number < 0)
+        {
+                _putchar('-');
+                count++;
+        }
+        if (number == 0)
+                _putchar('0');
+                count++;
+        if (number > 0)
+                number *= -1;
+        tens = number % 10;
+        for (i = 0; i < 9; i++)
+        {
+                if (number / maxint != 0)
+                {
+                        _putchar(((number / maxint * -1) % 10) + '0');
+                        count++;
 
-	for (i = 0; i < 10; i++)
-	{
-		if (number / maxint != 0)
-		{
-			_putchar(((number / maxint) % 10) + '0');
-			count++;
-		}
-		maxint /= 10;
+                }
+                maxint /= 10;
 	}
-	return (count);
+        if (tens < 0)
+                tens *= -1;
+        _putchar(tens + '0');
+        return (count);
 }
-
 /**
  * print_binary - print in binary
  * @arg: int arguments
