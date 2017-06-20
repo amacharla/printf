@@ -1,5 +1,7 @@
 #include "holberton.h"
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 /**
 ** _putchar - writes the character c to stdout
 ** @c: The character to print
@@ -35,3 +37,36 @@ int print_percent(void)
 	_putchar('%');
 	return (1);
 }
+/**
+ *print_rot13 - makes string to ROT13  
+ *@arg: arg list put in
+ *Return: conversion
+ */
+int print_rot13(va_list arg)
+{
+	char *s = va_arg(arg, char *);
+	int i;
+	int j;
+	char *ara;
+	char *arb;
+	ara = "ABCDEFGHIJKLMabcdefghijklm";
+	arb = "NOPQRSTUVWXYZnopqrstuvwxyz";
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		for (j = 0; j < 52; j++)
+		{
+			if (s[i] == ara[j])
+			{
+				_putchar(arb[j]);
+				break;
+			}
+		
+		}
+		if (j == 52)
+			_putchar(s[i]);
+
+	}
+	return (i);	
+}
+

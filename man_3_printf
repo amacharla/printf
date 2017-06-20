@@ -8,8 +8,6 @@
 .PP
 .B #include ‘holberton.h’
 .PP
-.B #include <stdio.h>
-.PP
 .B #include <stdlib.h>
 .PP
 .B #include <stdarg.h>
@@ -35,6 +33,9 @@ The integer argument is converted to a decimal notation.
 .PP
 .B s,
 This is a char * which is a pointer to array of characters which is a pointer to a string.
+.PP
+.B b,
+This is binary which turn base10 into base2
 .PP
 .B %,
 This returns a character unless there is another % in front of it at, which it will return the actual sign.
