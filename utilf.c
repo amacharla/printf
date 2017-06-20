@@ -12,7 +12,7 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
- * _pow_recursion - returns value of x ^ y.
+ * _pow - returns value of x ^ y.
  * @x: int value
  * @y: power to be raised
  * Return: x * y-1 till y == 0 -> y = 1 and unwindes
