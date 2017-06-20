@@ -34,8 +34,7 @@ int _printf(const char *format, ...)
 			if (print_func[j].type == '\0')
 			{
 				_putchar('%');
-				_putchar(mod);
-				count += 2;
+				_putchar(mod); count += 2;
 				i++; /*move past %*/
 			}
 			j = 0; /*reset transverse for type if matched or hits null*/
