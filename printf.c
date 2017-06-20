@@ -11,38 +11,38 @@ int _printf(const char *format, ...)
 	va_list arguments;
 
 	pstruct print_func [] = {
-		{'c', print_char}, {'s', print_string}, {'i', print_integer}, {'R', print_rot13},
-		{'d', print_digit}, {'b', print_binary}, {'%', print_percent}, {'\0', NULL}
+		{'c', print_char}, {'s', print_string},
+		{'i', print_integer}, {'R', print_rot13},
+		{'d', print_digit}, {'b', print_binary},
+		{'%', print_percent}, {'\0', NULL}
 	};
 	va_start(arguments, format);
 	i = 0, j = 0, count = 0;
 	while (format && format[i])
 	{
-		if (format[i] == '%' && format[i + 1])
+		if (!(format[i] == '%' && format[i + 1]))
+			{ _putchar(format[i]); count++; i++; continue; }
+
+		mod = format[i + 1];
+		while (print_func[j].type)
 		{
-			mod = format[i + 1];
-			while (print_func[j].type)
+			if (print_func[j].type == mod)
 			{
-				if (print_func[j].type == mod)
-				{
-					count += print_func[j].printer(arguments);
-					i++;
-					break;
-				}
-				j++;
+				count += print_func[j].printer(arguments);
+				i++;
+				break;
 			}
-			if (print_func[j].type == '\0')
-			{
-				_putchar('%');
-				_putchar(mod);
-				count += 2;
-				i++; /*move past %*/
-			}
-			j = 0; /*reset transverse for type if matched or hits null*/
-			i++; /*move past mod*/
+			j++;
 		}
-		else
-			{_putchar(format[i]); count++; i++; } /*move to next argument*/
+		if (print_func[j].type == '\0')
+		{
+			_putchar('%');
+			_putchar(mod);
+			count += 2;
+			i++; /*move past %*/
+		}
+		j = 0; /*reset transverse for type if matched or hits null*/
+		i++; /*move past mod*/
 	}
 	va_end(arguments);
 	return (count);
