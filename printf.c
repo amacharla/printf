@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	};
 	/* initialize va list and transvers and count */
 	va_start(arguments, format);
-	i = 0; j = 0; count = 0;
+	i = 0, j = 0, count = 0;
 	while (format && format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
