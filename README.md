@@ -29,15 +29,14 @@ The following conversion specifiers are handled with `_printf`:
 ### Extra Conversions
 * `R`: convert strings into rot13
 ### To Fix
-Currently, `_printf` cannot handle anything that needs an output of more than 1024 characters.
-In the future, we will fix this issue by either a) creating a check for our buffer or b) using `_putchar` to print everything to standard output and not using a buffer.
+
 
 ## Files
 * `README.md` : Current file, contains information about this project
 * `holberton.h` : Header file, contains all prototypes for funcitons used, as well as libriaries.
-* `_printf.c` : Contains the code for `_printf`
-* `_putchar.c`: File for function that prints a character
-* `pf_funcs.c`: File containing the specific functions for conversion specifiers
+* `printf.c` : Contains the code for `_printf`
+* `util_characters.c`: File for functions that have anything associated with characters that are not numbers.
+* `util_numbers.c`: File containing the specific functions for numbers.
 * `man_3_printf`: man page for our `_printf`
-* `testing`: folder for test files
+
 
