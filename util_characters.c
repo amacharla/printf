@@ -70,7 +70,8 @@ int print_rot13(va_list arg)
 	ara = "ABCDEFGHIJKLMabcdefghijklm";
 	arb = "NOPQRSTUVWXYZnopqrstuvwxyz";
 
-	i = 0; j = 0;
+	i = 0;
+	j = 0;
 	while (s[i] != '\0')
 	{
 		for (j = 0; j < 52; j++)
