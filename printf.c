@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			while (print_func[j].type)
 			{
 				if (print_func[j].type == mod)
-					count += print_func[j].printer(arguments); break;
+					{ count += print_func[j].printer(arguments); break; }
 				j++;
 			}
 			if (print_func[j].type == '\0')
@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			i++; /*move past mod*/
 		}
 		else
-			_putchar(format[i]); count++; i++; /*move to next argument*/
+			{_putchar(format[i]); count++; i++; } /*move to next argument*/
 	}
 	va_end(arguments);
 	return (count);

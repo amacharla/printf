@@ -103,7 +103,7 @@ int print_digit(va_list arg)
 			count++;
 
 		}
-		maxint /= 10
+		maxint /= 10;
 	}
 	if (tens < 0)
 		tens *= -1;
