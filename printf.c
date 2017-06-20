@@ -14,10 +14,8 @@ int _printf(const char *format, ...)
 		{'c', print_char}, {'s', print_string}, {'i', print_integer},
 		{'d', print_digit}, {'b', print_binary}, {'%', print_percent}, {'\0', NULL}
 	};
-	/* initialize va list and transvers and count */
 	va_start(arguments, format);
 	i = 0, j = 0, count = 0;
-
 	while (format && format[i])
 	{
 		if (format[i] == '%' && format[i + 1])
@@ -28,7 +26,8 @@ int _printf(const char *format, ...)
 				if (print_func[j].type == mod)
 				{
 					count += print_func[j].printer(arguments);
-					i++; break;
+					i++;
+					break;
 				}
 				j++;
 			}
@@ -36,7 +35,8 @@ int _printf(const char *format, ...)
 			{
 				_putchar('%');
 				_putchar(mod);
-				count += 2; i++; /*move past %*/
+				count += 2;
+				i++; /*move past %*/
 			}
 			j = 0; /*reset transverse for type if matched or hits null*/
 			i++; /*move past mod*/
