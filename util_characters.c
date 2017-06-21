@@ -18,10 +18,6 @@ int print_char(va_list arg)
 	char i;
 
 	i = va_arg(arg, int);
-
-	if (i == '\0')
-		return (0);
-
 	_putchar(i);
 	return (1);
 }
