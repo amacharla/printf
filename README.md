@@ -28,6 +28,7 @@ The following conversion specifiers are handled with `_printf`:
 
 ### Extra Conversions
 * `R`: convert strings into rot13
+* `r`: reverse a string
 ### To Fix
 
 
