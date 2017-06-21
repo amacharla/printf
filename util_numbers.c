@@ -16,85 +16,49 @@ int _pow(int x, int y)
 }
 
 /**
- * print_integer - print integers
+ * print_number - print numbers
  * @arg: va_list of arguments
  * Return: number count
  */
-int print_integer(va_list arg)
+int print_number(va_list arg)
 {
-	int i, tens;
-	int count = 0;
 	int maxint = 1000000000;
+	int minint = INT_MIN;
 	int number = va_arg(arg, int);
-	/*if negative number put negative sign*/
-	if (number < 0)
+	int i, count = 0, trigger = 0;
+
+	if (number < 0 && number > minint)
 	{
 		_putchar('-');
 		count++;
+		number *= -1;
 	}
 	if (number == 0)
 	{
 		_putchar('0');
 		count++;
-		return (count);
 	}
-	if (number > 0)
-		number *= -1;
-	tens = number % 10;
-	for (i = 0; i < 9; i++)
+	if (number == minint)
 	{
-		if (number / maxint != 0)
-		{
-			_putchar(((number / maxint * -1) % 10) + '0');
-			count++;
-
-		}
-		maxint /= 10;
-	}
-	if (tens < 0)
-		tens *= -1;
-	_putchar(tens + '0');
-	return (count);
-}
-/**
- * print_digit - print digit
- * @arg: va_list of arguments
- * Return: number count
- */
-int print_digit(va_list arg)
-{
-	int i, tens;
-	int count = 0;
-	int maxint = 1000000000;
-	int number = va_arg(arg, int);
-	/*if negative number put negative sign*/
-	if (number < 0)
-	{
+		number = (number % (maxint / 10)) * -1;
 		_putchar('-');
 		count++;
+		trigger = 1;
 	}
-	if (number == 0)
-	{
-		_putchar('0');
-		count++;
-		return (count);
-	}
-	if (number > 0)
-		number *= -1;
-	tens = number % 10;
-	for (i = 0; i < 9; i++)
+	for (i = 0; i < 10; i++)
 	{
 		if (number / maxint != 0)
 		{
-			_putchar(((number / maxint * -1) % 10) + '0');
+			_putchar(((number / maxint) % 10) + '0');
 			count++;
-
 		}
 		maxint /= 10;
 	}
-	if (tens < 0)
-		tens *= -1;
-	_putchar(tens + '0');
+	if (trigger == 1)
+	{
+		_putchar('8');
+		count++;
+	}
 	return (count);
 }
 /**

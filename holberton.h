@@ -2,7 +2,7 @@
 #define _holberton_h
 #include <stdlib.h> /*NULL*/
 #include <stdarg.h> /*va_list*/
-
+#include <limits.h> /*INT_MIN*/
 int _putchar(char c);
 int _printf(const char *format, ...);
 
@@ -22,8 +22,7 @@ typedef struct printf_functions
 int print_percent(void);
 int print_char(va_list arg);
 int print_string(va_list arg);
-int print_integer(va_list arg);
-int print_digit(va_list arg);
+int print_number(va_list arg);
 int print_binary(va_list arg);
 int _pow(int, int);
 int print_rot13(va_list arg);
