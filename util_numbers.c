@@ -54,16 +54,16 @@ int print_binary(va_list arg)
 {
 	unsigned int i = 0;
 	unsigned int j;
-	int number = va_arg(arg, int);
-	int counter = number;
-	int *remainder;
+	unsigned int number = va_arg(arg, unsigned int);
+	unsigned int counter = number;
+	unsigned int *remainder;
 
 	/* count number of characters (1 or 0) */
 	for (i = 1; counter != 0; i++)
 		counter /= 2;
 
 	/* allocating space to hold binary values + null check*/
-	remainder = malloc(i * sizeof(int));
+	remainder = malloc(i * sizeof(unsigned int));
 	if (remainder == NULL)
 		return (0);
 
