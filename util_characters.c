@@ -55,7 +55,7 @@ int print_string(va_list arg)
 	return (i);
 }
 /**
- *print_rot13 - makes string to ROT13  
+ *print_rot13 - makes string to ROT13
  *@arg: arg list put in
  *Return: conversion
  */
@@ -66,9 +66,10 @@ int print_rot13(va_list arg)
 	int j;
 	char *ara;
 	char *arb;
+
 	ara = "ABCDEFGHIJKLMabcdefghijklm";
 	arb = "NOPQRSTUVWXYZnopqrstuvwxyz";
-	
+
 	i = 0; j = 0;
 	while (s[i] != '\0')
 	{
@@ -90,6 +91,6 @@ int print_rot13(va_list arg)
 			_putchar(s[i]);
 
 	}
-	return (i);	
+	return (i);
 }
 
