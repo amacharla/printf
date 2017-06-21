@@ -11,13 +11,14 @@ int _printf(const char *format, ...)
 	va_list arguments;
 
 	pstruct print_func [] = {
-		{'c', print_char}, {'s', print_string},
-		{'i', print_number}, {'R', print_rot13},
-		{'d', print_number}, {'b', print_binary},
+		{'c', print_char}, {'s', print_string}, {'i', print_number},
+		{'R', print_rot13}, {'d', print_number}, {'b', print_binary},
 		{'r', print_reverse}, {'%', print_percent}, {'\0', NULL}
 	};
 	va_start(arguments, format);
 	i = 0, j = 0, count = 0;
+	if (format == NULL)
+		return (0);
 	while (format && format[i])
 	{
 		if (!(format[i] == '%' && format[i + 1]))
