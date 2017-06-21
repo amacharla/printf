@@ -15,10 +15,14 @@ int print_percent(void)
 **/
 int print_char(va_list arg)
 {
-	char i = va_arg(arg, int);
+	char i;
+
+	i = va_arg(arg, int);
+
+	if (i == '\0')
+		return (0);
 
 	_putchar(i);
-
 	return (1);
 }
 /**
@@ -49,38 +53,31 @@ int print_string(va_list arg)
  */
 int print_rot13(va_list arg)
 {
-	char *s = va_arg(arg, char *);
-	int i;
-	int j;
-	char *ara;
-	char *arb;
+	char *s;
+	char *temp;
+	int i, j;
 
-	ara = "ABCDEFGHIJKLMabcdefghijklm";
-	arb = "NOPQRSTUVWXYZnopqrstuvwxyz";
+	s = va_arg(arg, char *);
+	if (s == NULL)
+		s = "(ahyy)";
+	temp = malloc(52 * sizeof(char));
+	if (temp == NULL)
+		return (0);
 
-	i = 0;
-	j = 0;
-	while (s[i] != '\0')
+	for (i = 0; s[i]; i++)
 	{
-		for (j = 0; j < 52; j++)
-		{
-			if (s[i] == ara[j])
-			{
-				_putchar(arb[j]);
-				break;
-			}
-			if (s[i] == arb[j])
-			{
-				_putchar(ara[j]);
-				break;
-			}
-		}
-		i++;
-		if (j == 52)
-			_putchar(s[i]);
-
+		if ((s[i] >= 'a' && s[i] < 'n') || (s[i] >= 'A' && s[i] < 'N'))
+			temp[i] = s[i] + 13;
+		else if ((s[i] >= 'n' && s[i] <= 'z') || (s[i] >= 'N' && s[i] <= 'Z'))
+			temp[i] = s[i] - 13;
+		else
+			temp[i] = s[i];
 	}
-	return (i);
+
+	for (j = 0; j < i; j++)
+		_putchar(temp[j]);
+	free(temp);
+	return (j);
 }
 /**
  * print_reverse - print string in reverse
@@ -94,6 +91,8 @@ int print_reverse(va_list arg)
 
 	s = va_arg(arg, char *);
 
+	if (s == NULL)
+		s = ")llun(";
 	for (i = 0; s[i] != '\0'; i++)
 		;
 	for (j = (i - 1); j >= 0; j--)
