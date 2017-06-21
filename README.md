@@ -20,10 +20,10 @@ All files will be compiled with the following: `$ gcc -Wall -Werror -Wextra -ped
 
 ### Conversion Specifiers
 The following conversion specifiers are handled with `_printf`:
-* `%c`: single character
-* `%s`: string of characters
-* `%d`: signed integer
-* `%i`: signed integer
+* `%c`: print a single character
+* `%s`: print a string of characters
+* `%d`: print a decimal (base 10) number
+* `%i`: print an integer in base 10
 * `%b`: binary
 
 ### Extra Conversions
