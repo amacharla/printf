@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 		{'c', print_char}, {'s', print_string},
 		{'i', print_number}, {'R', print_rot13},
 		{'d', print_number}, {'b', print_binary},
-		{'%', print_percent}, {'\0', NULL}
+		{'r', print_reverse}, {'%', print_percent}, {'\0', NULL}
 	};
 	va_start(arguments, format);
 	i = 0, j = 0, count = 0;

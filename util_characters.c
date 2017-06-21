@@ -1,16 +1,4 @@
 #include "holberton.h"
-#include <unistd.h>
-/**
-** _putchar - writes the character c to stdout
-** @c: The character to print
-**
-** Return: On success 1.
-** On error, -1 is returned
-**/
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 /**
  * print_percent - print percent
  * Return: count
@@ -94,4 +82,21 @@ int print_rot13(va_list arg)
 	}
 	return (i);
 }
+/**
+ * print_reverse - print string in reverse
+ * @arg: arguments list
+ * Return: count
+ */
+int print_reverse(va_list arg)
+{
+	int i, j;
+	char *s;
 
+	s = va_arg(arg, char *);
+
+	for (i = 0; s[i] != '\0'; i++)
+		;
+	for (j = (i - 1); j >= 0; j--)
+		_putchar(s[j]);
+	return (i);
+}

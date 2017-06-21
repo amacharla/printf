@@ -3,7 +3,7 @@
 #include <stdlib.h> /*NULL*/
 #include <stdarg.h> /*va_list*/
 #include <limits.h> /*INT_MIN*/
-int _putchar(char c);
+
 int _printf(const char *format, ...);
 
 /**
@@ -18,12 +18,17 @@ typedef struct printf_functions
 	int (*printer)();
 } pstruct;
 
-/* HELPER FUNCTIONS */
+/* _PUCHAR.C */
+int _putchar(char c);
+
+/* UTIL_CHARACTERS */
 int print_percent(void);
 int print_char(va_list arg);
 int print_string(va_list arg);
+int print_reverse(va_list arg);
+/* UTIL_NUMBERS */
+int _pow(int, int);
 int print_number(va_list arg);
 int print_binary(va_list arg);
-int _pow(int, int);
 int print_rot13(va_list arg);
 #endif /* _holberton_h */
