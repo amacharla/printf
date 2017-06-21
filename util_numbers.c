@@ -1,21 +1,5 @@
 #include "holberton.h"
 /**
- * _pow - returns value of x ^ y.
- * @x: int value
- * @y: power to be raised
- * Return: x * y-1 till y == 0 -> y = 1 and unwindes
- * thus causing x to multiply itself
- */
-int _pow(int x, int y)
-{
-	if (y < 0)
-		return (-1);
-	if (y == 0)
-		return (1);
-	return (x * _pow(x, y - 1));
-}
-
-/**
  * print_number - print numbers
  * @arg: va_list of arguments
  * Return: number count
@@ -26,7 +10,7 @@ int print_number(va_list arg)
 	int minint = INT_MIN;
 	int number = va_arg(arg, int);
 	int i, count = 0, trigger = 0;
-
+	/* if negative and not max min int */
 	if (number < 0 && number > minint)
 	{
 		_putchar('-');
@@ -38,23 +22,23 @@ int print_number(va_list arg)
 		_putchar('0');
 		count++;
 	}
-	if (number == minint)
+	if (number == minint) /* cut off lass number then convert to positive */
 	{
 		number = (number % (maxint / 10)) * -1;
 		_putchar('-');
 		count++;
 		trigger = 1;
 	}
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 10; i++) /* print digit by digit */
 	{
-		if (number / maxint != 0)
+		if (number / maxint != 0) /* loop till find left more digit */
 		{
-			_putchar(((number / maxint) % 10) + '0');
+			_putchar(((number / maxint) % 10) + '0'); /* print digit*/
 			count++;
 		}
-		maxint /= 10;
+		maxint /= 10; /* lower the divisior or go through the digits left to right*/
 	}
-	if (trigger == 1)
+	if (trigger == 1) /* if max min digt put back the last digit */
 	{
 		_putchar('8');
 		count++;
